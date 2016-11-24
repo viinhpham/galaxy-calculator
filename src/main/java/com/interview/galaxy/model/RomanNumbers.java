@@ -1,4 +1,11 @@
 package com.interview.galaxy.model;
+
+import com.interview.galaxy.util.Utils;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
 /**
  * Author: Vinh Pham
  * Date: 22/11/2016
@@ -24,32 +31,56 @@ public enum RomanNumbers {
         return value;
     }
 
-    public static int getValueFromRomanChar(char romanChar)
-    {
+    public static int getValueFromRomanChar(char romanChar) {
         int value = -1;
 
-        switch(romanChar)
-        {
-            case 'I' : value = I.getValue();
+        switch (romanChar) {
+            case 'I':
+                value = I.getValue();
                 break;
-            case 'V' : value = V.getValue();
+            case 'V':
+                value = V.getValue();
                 break;
-            case 'X' : value = X.getValue();
+            case 'X':
+                value = X.getValue();
                 break;
-            case 'L' : value = L.getValue();
-                break;
-
-            case 'C' : value = C.getValue();
-                break;
-
-            case 'D' : value = D.getValue();
+            case 'L':
+                value = L.getValue();
                 break;
 
-            case 'M' : value = M.getValue();
+            case 'C':
+                value = C.getValue();
+                break;
+
+            case 'D':
+                value = D.getValue();
+                break;
+
+            case 'M':
+                value = M.getValue();
                 break;
 
         }
 
         return value;
+    }
+
+    public static RomanNumbers convertStringToRoman(String romanNumber) {
+        if (isRoman(romanNumber)) {
+            return Arrays.asList(RomanNumbers.values()).stream().filter(e -> e.name().equals(romanNumber)).findFirst().get();
+        }
+        return null;
+    }
+
+    public static boolean isRoman(String element) {
+        List romanList = Arrays.asList(RomanNumbers.values()).stream().map(Enum::name).collect(Collectors.toList());
+        if (romanList.contains(element)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    public static RomanNumbers getRomanAtPos(String string, int index){
+        return convertStringToRoman(Utils.getStringAtPos(string,index));
     }
 }
