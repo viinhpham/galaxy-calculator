@@ -10,7 +10,7 @@ import java.util.List;
  * Time: 3:09 PM
  */
 public class Utils {
-    public static List<String> stringToList(String string){
+    public static List<String> convertStringToList(String string){
         return convertStringToListWithDelimiter(string,"");
     }
 

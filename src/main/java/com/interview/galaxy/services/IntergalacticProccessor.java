@@ -1,6 +1,8 @@
 package com.interview.galaxy.services;
 
 import com.interview.galaxy.api.IntergalacticManagement;
+import com.interview.galaxy.api.Parser;
+import com.interview.galaxy.services.parser.InputParser;
 
 import java.util.List;
 
@@ -11,7 +13,6 @@ import java.util.List;
  */
 public class IntergalacticProccessor implements IntergalacticManagement{
     private static IntergalacticProccessor intergalacticCalculator;
-    private String result;
 
     public IntergalacticProccessor() {
     }
@@ -25,6 +26,7 @@ public class IntergalacticProccessor implements IntergalacticManagement{
      */
     @Override
     public List<String> process(List<String> inputTransactions) {
-        return null;
+        Parser parser = new InputParser();
+        return  parser.parse(inputTransactions);
     }
 }

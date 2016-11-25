@@ -1,5 +1,7 @@
 package com.interview.galaxy.api;
 
+import java.util.List;
+
 /**
  * Author: Vinh Pham
  * Date: 23/11/2016
@@ -7,8 +9,11 @@ package com.interview.galaxy.api;
  */
 public interface Parser {
     /**
-     * Parses input string to process.
-     * @param input
+     * Parses list of input string to process.
+     *
+     * @param List of input string.
+     *
+     * @return List of processed string.
      */
-    void parse(String input);
+    List<String> parse(List<String> input);
 }
